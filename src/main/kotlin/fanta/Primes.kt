@@ -3,7 +3,12 @@
  */
 package fanta
 
-import org.apache.commons.math3.primes.Primes
+import org.apache.commons.math3.primes.*
 
 fun Sequence<Int>.primes() = filter { i -> Primes.isPrime(i) }.toList()
 fun Array<Int>.primes() = filter { i -> Primes.isPrime(i) }.toIntArray()
+
+fun nthPrime(index: Int): Int {
+    assert(index > 0) { "index must be positive" }
+    return PRIMES[index-1]
+}

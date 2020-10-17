@@ -3,6 +3,7 @@
  */
 package fanta
 
+import java.lang.AssertionError
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -27,5 +28,15 @@ class PrimeTest {
         assertEquals(3, arr[1], "Primality test failed")
         assertEquals(5, arr[2], "Primality test failed")
         assertEquals(7, arr[3], "Primality test failed")
+    }
+
+    @Test(expected = AssertionError::class)
+    fun `find nth prime fails if index not positive`() {
+        nthPrime(0)
+    }
+
+    @Test
+    fun `find nth prime`() {
+        assertEquals(29, nthPrime(10))
     }
 }
